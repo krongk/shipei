@@ -1,4 +1,4 @@
-source 'https://rubygems.org'
+source 'http://ruby.taobao.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -37,4 +37,34 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+
+gem 'bootstrap-sass'
+gem 'devise'
+gem 'figaro', '>= 1.0.0.rc1'
+gem 'high_voltage'
+gem 'mysql2'
+gem 'pundit'
+gem 'simple_form'
+gem 'therubyracer', :platform=>:ruby
+gem 'upmin-admin'
+
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller', :platforms=>[:mri_20]
+  gem 'capistrano', '~> 3.0.1'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails', '~> 1.1.0'
+  gem 'capistrano-rails-console'
+  gem 'capistrano-rvm', '~> 0.1.1'
+  gem 'hub', :require=>nil
+  gem 'quiet_assets'
+  gem 'rails_apps_pages'
+  gem 'rails_layout'
+end
+
+group :development, :test do
+  gem 'pry-rails'
+  gem 'pry-rescue'
+end
 
