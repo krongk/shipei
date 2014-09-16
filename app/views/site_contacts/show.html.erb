@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Site:</strong>
+  <%= @site_contact.site %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @site_contact.email %>
+</p>
+
+<p>
+  <strong>Qq:</strong>
+  <%= @site_contact.qq %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @site_contact.phone %>
+</p>
+
+<p>
+  <strong>Is processed:</strong>
+  <%= @site_contact.is_processed %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @site_contact.note %>
+</p>
+
+<%= link_to 'Edit', edit_site_contact_path(@site_contact) %> |
+<%= link_to 'Back', site_contacts_path %>

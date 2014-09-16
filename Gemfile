@@ -1,6 +1,8 @@
 source 'http://ruby.taobao.org'
 ruby '2.0.0'
+
 gem 'rails', '4.1.0'
+gem 'mysql2', '0.3.13'
 gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -10,14 +12,36 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'bootstrap-sass'
+gem 'bootstrap-will_paginate'
+gem 'font-awesome-sass'
 gem 'devise'
-gem 'figaro', '>= 1.0.0.rc1'
+gem 'omniauth'
+gem 'omniauth-oauth2'
+gem 'figaro'
 gem 'high_voltage'
-gem 'mysql2'
 gem 'pundit'
 gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
 gem 'upmin-admin'
+gem 'sitemap_generator'
+gem 'sidekiq'
+
+#fix error: No source of timezone data could be found. (TZInfo::DataSourceNotFound)
+gem 'tzinfo-data'
+
+#for sortable
+gem 'acts_as_list'
+#handle the error: couldn't find file 'jquery-ui'
+#only used for sortable ui
+gem 'jquery-ui-rails' 
+
+#add :git to bugfix open dialog error
+gem "ckeditor", :git => "git@github.com:galetahub/ckeditor.git"
+#File upload
+gem 'paperclip'
+gem 'paperclip-qiniu'
+gem 'jquery-fileupload-rails'
+
 group :development do
   gem 'better_errors'
   gem 'binding_of_caller', :platforms=>[:mri_20]

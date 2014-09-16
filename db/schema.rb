@@ -11,7 +11,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140916061135) do
+ActiveRecord::Schema.define(version: 20140916072634) do
+
+  create_table "devices", force: true do |t|
+    t.string   "name"
+    t.integer  "width"
+    t.integer  "height"
+    t.string   "os"
+    t.string   "preview_image"
+    t.string   "vertical_bg"
+    t.string   "horizontal_bg"
+    t.string   "screen_size"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "devices", ["name"], name: "index_devices_on_name", using: :btree
+
+  create_table "site_contacts", force: true do |t|
+    t.integer  "site_id"
+    t.string   "email"
+    t.string   "qq"
+    t.string   "phone"
+    t.string   "is_processed", default: "n"
+    t.text     "note"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "site_contacts", ["is_processed"], name: "index_site_contacts_on_is_processed", using: :btree
+  add_index "site_contacts", ["site_id"], name: "index_site_contacts_on_site_id", using: :btree
+
+  create_table "sites", force: true do |t|
+    t.string   "url"
+    t.string   "title"
+    t.string   "keywords"
+    t.text     "description"
+    t.string   "is_processed", default: "n"
+    t.text     "note"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sites", ["is_processed"], name: "index_sites_on_is_processed", using: :btree
+  add_index "sites", ["url"], name: "index_sites_on_url", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

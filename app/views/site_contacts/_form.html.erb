@@ -1,0 +1,16 @@
+<%= simple_form_for(@site_contact) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :site %>
+    <%= f.input :email %>
+    <%= f.input :qq %>
+    <%= f.input :phone %>
+    <%= f.input :is_processed %>
+    <%= f.input :note %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

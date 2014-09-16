@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @device.name %>
+</p>
+
+<p>
+  <strong>Width:</strong>
+  <%= @device.width %>
+</p>
+
+<p>
+  <strong>Height:</strong>
+  <%= @device.height %>
+</p>
+
+<p>
+  <strong>Os:</strong>
+  <%= @device.os %>
+</p>
+
+<p>
+  <strong>Preview image:</strong>
+  <%= @device.preview_image %>
+</p>
+
+<p>
+  <strong>Vertical bg:</strong>
+  <%= @device.vertical_bg %>
+</p>
+
+<p>
+  <strong>Horizontal bg:</strong>
+  <%= @device.horizontal_bg %>
+</p>
+
+<p>
+  <strong>Screen size:</strong>
+  <%= @device.screen_size %>
+</p>
+
+<%= link_to 'Edit', edit_device_path(@device) %> |
+<%= link_to 'Back', devices_path %>

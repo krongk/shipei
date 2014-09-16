@@ -1,0 +1,35 @@
+<h1>Listing site_contacts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Site</th>
+      <th>Email</th>
+      <th>Qq</th>
+      <th>Phone</th>
+      <th>Is processed</th>
+      <th>Note</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @site_contacts.each do |site_contact| %>
+      <tr>
+        <td><%= site_contact.site %></td>
+        <td><%= site_contact.email %></td>
+        <td><%= site_contact.qq %></td>
+        <td><%= site_contact.phone %></td>
+        <td><%= site_contact.is_processed %></td>
+        <td><%= site_contact.note %></td>
+        <td><%= link_to 'Show', site_contact %></td>
+        <td><%= link_to 'Edit', edit_site_contact_path(site_contact) %></td>
+        <td><%= link_to 'Destroy', site_contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Site contact', new_site_contact_path %>
