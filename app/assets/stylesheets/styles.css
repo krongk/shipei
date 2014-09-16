@@ -3,7 +3,7 @@
 -------------------------*/
 
 body{
-	font-family: Raleway, Arial, sans-serif;
+	font-family: "微软雅黑", "Microsoft-yahei", Arial, sans-serif;
     font-size:16px;
     font-weight:300;
     color:#6d6d6d;
@@ -313,13 +313,32 @@ h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,.h4,.h5,.h6{
 #home h1 + p{
     font-size: 28px;
 }
+/*-----------------------
+---- search_section Styles ----
+-------------------------*/
+#search_section{
+  position: relative;
+  margin: 0 auto;
+  margin-top: -150px;
+  width: 50%;
+  min-width: 400px;
+  text-align: center;
+}
+
+/*-----------------------
+---- swiper_section Styles ----
+-------------------------*/
+#swiper_section{
+  
+}
 
 /*-----------------------
 ---- Services Styles ----
 -------------------------*/
 #services{
     background-color: #fff;
-    box-shadow: 0 0 50px rgba(0,0,0,0.5);
+/*    box-shadow: 0 0 50px rgba(0,0,0,0.5);
+*/
 }
 
 .service-item{

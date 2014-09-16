@@ -1,4 +1,5 @@
 class SitesController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_site, only: [:show, :edit, :update, :destroy]
 
   # GET /sites
@@ -64,11 +65,12 @@ class SitesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_site
-      @site = Site.find(params[:id])
+      @site = Site.find_by(short_title: params[:short_title])
+      @site ||= Site.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def site_params
-      params.require(:site).permit(:url, :title, :keywords, :description, :is_processed, :note)
+      params.require(:site).permit(:domain, :title, :keywords, :description, :is_processed, :note)
     end
 end

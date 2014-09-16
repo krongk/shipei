@@ -1,0 +1,33 @@
+<div class="swiper-container swiper-nav">
+  <div class="swiper-wrapper">
+    <% @devices.each do |device| %>
+      <div class="swiper-slide <%= 'active-nav' if device.id == 1%>">
+        <span class="angle"></span>
+        <img src="<%= device.preview_image %>" alt="<%= device.name %>">
+        <div class="title"><%= device.name %></div>
+        <div class=""><%= "#{device.width}x#{device.height}" %></div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="swiper-container swiper-content">
+  <div class="swiper-wrapper">
+    <% @devices.each do |device| %>
+      <div class="swiper-slide">
+        <div class="inner">
+          <h1>Movie 16</h1>
+          <% if device.typo == 'mobile' %>
+            <div class="phone-bg" style="background: url('<%= device.vertical_bg %>') top left no-repeat;">
+              <iframe id="preview" src="http://<%= @site.domain %>" width="320px" height="<%= device.height %>px" frameBorder="2" scrolling="no"></iframe>
+            </div>
+          <% else %>
+            <%= device.name %>
+          <% end %>
+          <div class="movie-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, consequuntur, officiis esse assumenda corporis voluptates sunt veritatis vero ipsam veniam porro cum libero hic? Pariatur, repudiandae sunt iusto molestiae quam!</div>
+          <div class="clearfix"></div>
+        </div>
+       
+      </div>
+    <% end %>
+  </div>
+</div>

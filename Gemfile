@@ -22,7 +22,6 @@ gem 'high_voltage'
 gem 'pundit'
 gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
-gem 'upmin-admin'
 gem 'sitemap_generator'
 gem 'sidekiq'
 
