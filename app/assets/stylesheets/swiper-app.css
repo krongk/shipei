@@ -16,6 +16,7 @@
 
 .swiper-content .inner {
 	padding: 20px;
+	margin: 0 auto;
 }
 .swiper-content h1 {
 	margin: 0 0 15px;
@@ -92,7 +93,6 @@
 
 /************************************/
 .phone-bg {
-		float: left;
     position: relative;
     padding-top: 65px;
     padding-left: 14px;

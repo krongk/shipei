@@ -15,15 +15,13 @@
     <% @devices.each do |device| %>
       <div class="swiper-slide">
         <div class="inner">
-          <h1>Movie 16</h1>
           <% if device.typo == 'mobile' %>
-            <div class="phone-bg" style="background: url('<%= device.vertical_bg %>') top left no-repeat;">
-              <iframe id="preview" src="http://<%= @site.domain %>" width="320px" height="<%= device.height %>px" frameBorder="2" scrolling="no"></iframe>
+            <div class="phone-bg" style="background: url('<%= device.vertical_bg %>') top center no-repeat;">
+              <iframe id="preview" src="http://<%= @site.domain %>" width="<%= device.width %>px" height="<%= device.height %>px" frameBorder="2" scrolling="no"></iframe>
             </div>
           <% else %>
             <%= device.name %>
           <% end %>
-          <div class="movie-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, consequuntur, officiis esse assumenda corporis voluptates sunt veritatis vero ipsam veniam porro cum libero hic? Pariatur, repudiandae sunt iusto molestiae quam!</div>
           <div class="clearfix"></div>
         </div>
        
