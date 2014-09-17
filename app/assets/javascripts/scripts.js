@@ -1,14 +1,23 @@
-$(document).ready(function() {
-	
+ready = function() {
+	/*============================================
+	Footer pop Weixin
+	==============================================*/
+	$('#icon-weixin2').popover({
+      html: true,
+      placement: 'top',
+      title: '扫描二维码加微信',
+      content: function(){
+        return $('#weixin-qrcode2').html();
+      }
+  });
 	/*============================================
 	Page Preloader
 	==============================================*/
 	
 	$(window).load(function(){
 		$('#page-loader').fadeOut(500,function(){
-			loadGmap();
+			//loadGmap();
 		});
-		
 	})	
 	
 	/*============================================
@@ -240,93 +249,11 @@ $(document).ready(function() {
 	/*============================================
 	Twitter
 	==============================================*/
-	// var tweetsLength = $('#twitter-slider').data('tweets-length'),
-	// 	widgetID = $('#twitter-slider').data('widget-id');
 	
-	// twitterFetcher.fetch(widgetID, 'twitter-slider', tweetsLength, true, false, true, '', false, handleTweets);
-
-	// function handleTweets(tweets){
-	
-	// 	var x = tweets.length,
-	// 		n = 0,
-	// 		tweetsHtml = '<ul class="slides">';
-			
-	// 	while(n < x) {
-	// 		tweetsHtml += '<li>' + tweets[n] + '</li>';
-	// 		n++;
-	// 	}
-		
-	// 	tweetsHtml += '</ul>';
-	// 	$('#twitter-slider').html(tweetsHtml);
-	
-	// 	$('.twitter_reply_icon').html("<i class='fa fa-reply'></i>");
-	// 	$('.twitter_retweet_icon').html("<i class='fa fa-retweet'></i>");
-	// 	$('.twitter_fav_icon').html("<i class='fa fa-star'></i>");
-	  
-	// 	$('#twitter-slider').flexslider({
-	// 		prevText: '<i class="fa fa-angle-left"></i>',
-	// 		nextText: '<i class="fa fa-angle-right"></i>',
-	// 		slideshowSpeed: 5000,
-	// 		useCSS: true,
-	// 		controlNav: false, 
-	// 		pauseOnAction: false, 
-	// 		pauseOnHover: true,
-	// 		smoothHeight: false
-	// 	});
-	// }
 	/*============================================
 	Contact Map
 	==============================================*/
-	function loadGmap(){
 	
-	if($('#gmap').length){
-	
-		var map;
-		var mapstyles = [ { "stylers": [ { "saturation": -100 } ] } ];
-		
-		var infoWindow = new google.maps.InfoWindow;
-		
-		var pointLatLng = new google.maps.LatLng(mapPoint.lat, mapPoint.lng);
-
-		var mapOptions = {
-			zoom: mapPoint.zoom,
-			center: pointLatLng,
-			zoomControl : true,
-			panControl : false,
-			streetViewControl : false,
-			mapTypeControl: false,
-			overviewMapControl: false,
-			scrollwheel: false,
-			styles: mapstyles
-		}
-		
-		map = new google.maps.Map(document.getElementById("gmap"), mapOptions);
-		
-		var marker = new google.maps.Marker({
-			position: pointLatLng, 
-			map: map, 
-			title:mapPoint.linkText,
-			icon: mapPoint.icon
-		});
-		
-		var mapLink = 'https://www.google.com/maps/preview?ll='+mapPoint.lat+','+mapPoint.lng+'&z=14&q='+mapPoint.mapAddress;
-		
-		var html = '<div class="infowin">'
-				+ mapPoint.infoText
-				+ '<a href="'+mapLink+'" target="_blank">'+mapPoint.linkText+'</a>'
-				+ '</div>';
-
-		google.maps.event.addListener(marker, 'mouseover', function() {
-			infoWindow.setContent(html);
-			infoWindow.open(map, marker);
-		});
-
-		google.maps.event.addListener(marker, 'click', function() {
-			window.open(mapLink,'_blank');
-		});
-		
-	}
-	}
 	/*============================================
 	Waypoints Animations
 	==============================================*/
@@ -379,4 +306,9 @@ $(document).ready(function() {
 			$.waypoints('refresh');
 		},1000);
 	}
-});
+};
+
+/*======================================下面是burbolinks改造后的调用方法===============================================*/
+//#turbolinks style
+$(document).ready(ready);
+$(document).on('page:load', ready);

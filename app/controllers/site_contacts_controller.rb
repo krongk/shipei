@@ -1,5 +1,5 @@
 class SiteContactsController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, except: [:new, :create]
   before_action :set_site_contact, only: [:show, :edit, :update, :destroy]
 
   # GET /site_contacts
@@ -26,13 +26,20 @@ class SiteContactsController < ApplicationController
   # POST /site_contacts.json
   def create
     @site_contact = SiteContact.new(site_contact_params)
+    @site_contact.site_id = get_site(site_contact_params[:url]).try(:id)
 
     respond_to do |format|
       if @site_contact.save
-        format.html { redirect_to @site_contact, notice: 'Site contact was successfully created.' }
-        format.json { render :show, status: :created, location: @site_contact }
+        #send notice to admin
+        if Rails.env == 'production' && @site_contact.site_id == 1
+          SmsSendWorker.perform_async(ENV['ADMIN_PHONE'].split('|').join(','), "#{@site_contact.mobile_phone}给你留言了：#{@site_contact.content}【维斗喜帖】")
+          SmsSendWorker.perform_async(@site_contact.mobile_phone, "感谢你的留言！试试手机上创建喜帖：http://www.wedxt.com【维斗喜帖】")
+        end
+
+        format.html { render text: 'success' }
+        format.json { render action: 'show', status: :created, location: @site_contact }
       else
-        format.html { render :new }
+        format.html { render action: 'new' }
         format.json { render json: @site_contact.errors, status: :unprocessable_entity }
       end
     end
@@ -63,6 +70,15 @@ class SiteContactsController < ApplicationController
   end
 
   private
+    def get_site(url)
+      domain = begin
+        URI.parse(url).hostname
+      rescue
+      end
+      return if domain.nil?
+      return Site.find_or_create_by(domain: domain)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_site_contact
       @site_contact = SiteContact.find(params[:id])
@@ -70,6 +86,6 @@ class SiteContactsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def site_contact_params
-      params.require(:site_contact).permit(:site_id, :email, :qq, :phone, :is_processed, :note)
+      params.require(:site_contact).permit(:site_id, :url, :email, :qq, :phone, :is_processed, :note)
     end
 end
