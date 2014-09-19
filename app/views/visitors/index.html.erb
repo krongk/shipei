@@ -257,20 +257,24 @@ FOOTER
           <div id="weixin-qrcode2" class="hidden"><%= image_tag('weixin-qrcode.png', alt: '高大上的维斗喜帖', width: '106px', border: '0px') %></div>
       </li>
     </ul>
-  
-    <p class="text-center">
-      <%= image_tag 'anquan.png', class: 'img-responsive img-center' %>
-    </p>
-    <p class="text-center">
-      <b>地址：</b><addr>成都市二环路东二段龙湖三千星座A座2801号</addr>&nbsp;&nbsp;
-      <b>邮编: </b> 610000&nbsp;&nbsp;
-      <b>电话: </b> 028-85218320
-    </p>
-    <p class="text-center">
-      &copy; 2014-摩适配-版权所有  &nbsp;&nbsp;&nbsp;&nbsp;
-      <a href="http://www.miibeian.gov.cn" target="_blank">蜀ICP备14021922号</a>
-    </p>
-  
+    
+    <div class="hidden-xs">
+      <p class="text-center">
+        <%= image_tag 'anquan.png', class: 'img-responsive img-center' %>
+      </p>
+      <p class="text-center">
+        <b>地址：</b><addr>成都市二环路东二段龙湖三千星座A座2801号</addr>&nbsp;&nbsp;
+        <b>邮编: </b> 610000&nbsp;&nbsp;
+        <b>电话: </b> 028-85218320
+      </p>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6 text-right hidden-xs">&copy; 2014-摩适配-版权所有</div>
+      <div class="col-md-6 text-left hidden-xs"><a href="http://www.miibeian.gov.cn" target="_blank">蜀ICP备14021922号</a></div>
+      <div class="col-xs-12 visible-xs text-center">www.mshipei.com</div>
+    </div>
+
   </div>
   
 </footer>
