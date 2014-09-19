@@ -7,6 +7,7 @@ class VisitorsController < ApplicationController
       redirect_to  "/s/#{@site.short_title}" and return
     end
     @top_ten_sites = Site.limit(18)
+    @site_count = Site.all.size
   end
 
   def show
