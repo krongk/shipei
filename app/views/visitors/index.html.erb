@@ -51,7 +51,7 @@ SEARCH FORM
   <form class="search_form" role="search">
     <div class="row">
       <div class="col-md-9 col-sm-8 col-xs-12">
-        <input class="form-control input-url" type="url" name="url" placeholder="输入网站地址, 以http://开头">
+        <input class="form-control input-url" type="url" name="url" placeholder="http://">
       </div>
       <div class="col-md-3 col-sm-4 col-xs-12">
         <button type="submit" class="btn btn-default btn-submit">开始测试</button>
@@ -101,6 +101,7 @@ ABOUT
         <h1 class="big-text">怎样 <br/>解决网站适配</h1>
         <p class="lead">国内各大平台也相继推出了移动网站解决方案，比如百度轻应用+直达号；腾讯微信公共号+QQ浏览器轻应用; UC浏览器轻应用等.</p>
         <p>企业需要做的，就是建设一个自己的移动微网，然后接入各大平台。</p>
+        <p><a href="#contact" class="scrollto">联系我们</a>
       </div>
     </div>
   </div>
@@ -108,7 +109,7 @@ ABOUT
 <!-- ==============================================
 SKILLS
 =============================================== -->
-<section id="skills" class="add-padding border-bottom-color2">
+<section id="skills" class="add-padding-top border-bottom-color2">
   <div class="container">
     <div class="row">
       <div class="col-sm-6 col-md-5 text-right scrollimation fade-up d1">
@@ -147,7 +148,7 @@ TWITTER
 <!-- ==============================================
 CONTACT
 =============================================== -->
-<section id="contact" class="add-padding">
+<section id="contact" class="add-padding-top">
 
   <div class="container text-center">
     
@@ -207,7 +208,33 @@ CONTACT
   </div>
 
 </section>
-  
+
+<!-- ==============================================
+ABOUT
+=============================================== -->
+<section id="case" class="bg-color1">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>它们已经通过了网站适配测试...</h1>
+        <div class="table-responsive">
+          <table class="table">
+            <tr>
+              <% @top_ten_sites[0..8].each do |site| %>
+                <td><%= link_to site.title, "/s/#{site.short_title}" %></td>
+              <% end %>
+            </tr>
+            <tr>
+              <% @top_ten_sites[9..17].each do |site| %>
+                <td><%= link_to site.title, "/s/#{site.short_title}" %></td>
+              <% end %>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <!-- ==============================================
 FOOTER
 =============================================== -->

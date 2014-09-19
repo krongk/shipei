@@ -26,7 +26,7 @@ var ready = function() {
 	
 	$('#home').height($(window).height()+50);
 	
-	$.backstretch('/assets/header-bg3.jpg');
+	$.backstretch('http://tm-admin.qiniudn.com/mshipeiheader-bg.jpg');
 	
 	$(window).scroll( function() {
 		var st = $(this).scrollTop(),

@@ -6,6 +6,7 @@ class VisitorsController < ApplicationController
     if params[:url] && @site = get_site(params[:url])
       redirect_to  "/s/#{@site.short_title}" and return
     end
+    @top_ten_sites = Site.limit(18)
   end
 
   def show
