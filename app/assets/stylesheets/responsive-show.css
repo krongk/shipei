@@ -91,11 +91,11 @@ li.letterBlock.sixs.end {
   font-size: 12px;
 }
 
-.letterBlock: hover, .letterBlock.selected {
+.letterBlock:hover, .letterBlock.selected {
   background: url('/assets/devices/g_yarrrow.png') center bottom no-repeat;
 }
 
-.letterBlock: hover, .letterBlock.selected {
+.letterBlock:hover, .letterBlock.selected {
   color: #000;
   cursor: pointer;
 }
@@ -109,7 +109,7 @@ li.letterBlock.sixs.end {
   display: block;
 }
 
-.letterBlock: hover div, .letterBlock.selected div {
+.letterBlock:hover div, .letterBlock.selected div {
   display: block;
  -moz-border-radius: 8px;
   border-radius: 8px;
@@ -219,7 +219,7 @@ li.letterBlock.sixs.end {
   font-family: 'Microsoft Yahei', Arial, Helvetica, sans-serif;
 }
 
-#lg-searchBtn: hover {
+#lg-searchBtn:hover {
   background-color: #6C4C01 !important;
   color: #f4cc03;
  /*background: url(images/linear_bg_2.png); background-repeat: repeat-x;*/ /* Safari 4-5, Chrome 1-9 */
