@@ -24,22 +24,18 @@ gem 'simple_form'
 gem 'therubyracer', :platform=>:ruby
 gem 'sitemap_generator'
 gem 'sidekiq'
+gem 'nokogiri'
 
 #fix error: No source of timezone data could be found. (TZInfo::DataSourceNotFound)
 gem 'tzinfo-data'
 
 #for sortable
-gem 'acts_as_list'
 #handle the error: couldn't find file 'jquery-ui'
 #only used for sortable ui
 gem 'jquery-ui-rails' 
 
 #add :git to bugfix open dialog error
-gem "ckeditor", :git => "git@github.com:galetahub/ckeditor.git"
 #File upload
-gem 'paperclip'
-gem 'paperclip-qiniu'
-gem 'jquery-fileupload-rails'
 
 group :development do
   gem 'better_errors'
