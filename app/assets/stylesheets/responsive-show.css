@@ -3,7 +3,7 @@
 /* http://responsivedesignchecker.com/ */
 
 .top-burst-wrap {
-  width: 100 %;
+  width: 100%;
   border-bottom: solid 1px #222222;
 }
 
@@ -113,10 +113,10 @@ li.letterBlock.sixs.end {
   display: block;
  -moz-border-radius: 8px;
   border-radius: 8px;
-  background: #f8df03 url(/assets/devices / selected_background_gradient.png) left bottom repeat-x;
+  background: #f8df03 url('/assets/devices/selected_background_gradient.png') left bottom repeat-x;
   background-color: #f8df03;
  /*background: url(images/linear_bg_2.png); background-repeat: repeat-x;*/ /* Safari 4-5, Chrome 1-9 */
-  background: -webkit-gradient(linear, 0 % 0 % , 0 % 100 % , from(#f8df03), to(#eeae02));
+  background: -webkit-gradient(linear, 0% 0% , 0% 100% , from(#f8df03), to(#eeae02));
  /* Safari 5.1, Chrome 10+ */
   background: -webkit-linear-gradient(top, #f8df03, #eeae02);
  /* Firefox 3.6+ */
@@ -163,7 +163,7 @@ li.letterBlock.sixs.end {
   position: absolute;
   top: 0;
   left: 0;
-  width: 101 %;
+  width: 101%;
   z-index: 2;
   background: rgba(0, 0, 0, .8);
 }
@@ -176,7 +176,7 @@ li.letterBlock.sixs.end {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 101 %;
+  width: 101%;
   top: 768px;
   z-index: 2;
   background: rgba(0, 0, 0, .8);
@@ -202,7 +202,7 @@ li.letterBlock.sixs.end {
   border-radius: 8px;
   background-color: #f4cc03;
  /*background: url(images/linear_bg_2.png); background-repeat: repeat-x;*/ /* Safari 4-5, Chrome 1-9 */
-  background: -webkit-gradient(linear, 0 % 0 % , 0 % 100 % , from(#f4cc03), to(#eeae02));
+  background: -webkit-gradient(linear, 0% 0% , 0% 100% , from(#f4cc03), to(#eeae02));
  /* Safari 5.1, Chrome 10+ */
   background: -webkit-linear-gradient(top, #f4cc03, #eeae02);
  /* Firefox 3.6+ */
@@ -223,7 +223,7 @@ li.letterBlock.sixs.end {
   background-color: #6C4C01 !important;
   color: #f4cc03;
  /*background: url(images/linear_bg_2.png); background-repeat: repeat-x;*/ /* Safari 4-5, Chrome 1-9 */
-  background: -webkit-gradient(linear, 0 % 0 % , 0 % 100 % , from(#6C4C01), to(#513900));
+  background: -webkit-gradient(linear, 0% 0% , 0% 100% , from(#6C4C01), to(#513900));
  /* Safari 5.1, Chrome 10+ */
   background: -webkit-linear-gradient(top, #6C4C01, #513900);
  /* Firefox 3.6+ */
@@ -235,7 +235,7 @@ li.letterBlock.sixs.end {
 }
 
 .dis-wrapper {
-  width: 100 %;
+  width: 100%;
   padding-top: 20px;
 }
 
