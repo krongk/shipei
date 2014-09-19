@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title><%= content_for?(:title) ? yield(:title) : "摩适配" %></title>
-    <meta name="keywords" content="<%= content_for?(:keywords) ? yield(:keywords) : ApplicationHelper::SITE_KEYWORDS %>">
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "摩适配" %>">
+    <meta name="keywords" content="<%= content_for?(:meta_keywords) ? yield(:meta_keywords) : ApplicationHelper::SITE_KEYWORDS %>">
+    <meta name="description" content="<%= content_for?(:meta_description) ? yield(:meta_description) : "摩适配" %>">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <!--[if lt IE 9]>

@@ -11,7 +11,9 @@ class VisitorsController < ApplicationController
 
   def show
     if params[:url] 
-      unless @site = get_site(params[:url])
+      if @site = get_site(params[:url])
+        redirect_to "/s/#{@site.short_title}" and return
+      else
         redirect_to "/" and return
       end
     else
