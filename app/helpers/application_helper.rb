@@ -17,4 +17,22 @@ module ApplicationHelper
   def meta_description(meta_description)
     content_for(:meta_description){ meta_description}
   end
+
+  #used in visitors_controller and site_contacts_controller
+  def get_site(url)
+    domain = URI.parse(url).hostname
+    return nil if domain.nil?
+    site = Site.find_by(domain: domain)
+    return site unless site.nil?
+
+    site = Site.new
+    site.domain = domain
+    site.save!
+    site.reload
+    #send notice to admin
+    if Rails.env == 'production'
+      SiteProcessWorker.perform_async(site.id)
+    end
+    return site
+  end
 end

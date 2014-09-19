@@ -24,7 +24,7 @@ ready = function() {
 					hasError = true;
 				}
 			} else if($(this).is("input[type='url']") || $(this).attr('name')==='url') {
-				var urlReg = /^((http(s)?:\/\/)?([\w-]+\.)+[\w-]{2,4})?$/;
+				var urlReg = /^((http(s)?:\/\/)?([\w-]+\.)+[\w-]{2,4})?.*/;
 				if(!urlReg.test($.trim($(this).val()))) {
 					var invalidUrl = $(this).data('error-invalid');
 					$(this).parent().append('<span class="error-message" style="display:none;">'+invalidUrl+'.</span>').find('.error-message').fadeIn('fast');
@@ -32,7 +32,7 @@ ready = function() {
 					hasError = true;
 				}
 			} else if($(this).is("input[type='mobile_phone']") || $(this).attr('name')==='mobile_phone') {
-				var phoneReg = /^(1[35789]\d{9})?$/;
+				var phoneReg = /^(1[356789]\d{9})?$/;
 				if(!phoneReg.test($.trim($(this).val()))) {
 					var invalidPhone = $(this).data('error-invalid');
 					$(this).parent().append('<span class="error-message" style="display:none;">'+invalidPhone+'.</span>').find('.error-message').fadeIn('fast');

@@ -21,21 +21,4 @@ class VisitorsController < ApplicationController
     end
   end
 
-  private
-  def get_site(url)
-    domain = URI.parse(url).hostname
-    return nil if domain.nil?
-    site = Site.find_by(domain: domain)
-    return site unless site.nil?
-
-    site = Site.new
-    site.domain = domain
-    site.save!
-    site.reload
-    #send notice to admin
-    if Rails.env == 'production'
-      SiteProcessWorker.perform_async(site.id)
-    end
-    return site
-  end
 end
