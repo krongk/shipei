@@ -5,7 +5,7 @@ class SiteContactsController < ApplicationController
   # GET /site_contacts
   # GET /site_contacts.json
   def index
-    @site_contacts = SiteContact.all
+    #@site_contacts = SiteContact.all
   end
 
   # GET /site_contacts/1
@@ -31,9 +31,8 @@ class SiteContactsController < ApplicationController
     respond_to do |format|
       if @site_contact.save
         #send notice to admin
-        if Rails.env == 'production' && @site_contact.site_id == 1
-          SmsSendWorker.perform_async(ENV['ADMIN_PHONE'].split('|').join(','), "#{@site_contact.mobile_phone}给你留言了：#{@site_contact.content}【维斗喜帖】")
-          SmsSendWorker.perform_async(@site_contact.mobile_phone, "感谢你的留言！试试手机上创建喜帖：http://www.wedxt.com【维斗喜帖】")
+        if Rails.env == 'production'
+          SmsSendWorker.perform_async(ENV['ADMIN_PHONE'].split('|').join(','), "#{@site_contact.phone}给你留言了：#{@site_contact.site.domain}【摩适配】")
         end
 
         format.html { render text: 'success' }
@@ -70,15 +69,6 @@ class SiteContactsController < ApplicationController
   end
 
   private
-    def get_site(url)
-      domain = begin
-        URI.parse(url).hostname
-      rescue
-      end
-      return if domain.nil?
-      return Site.find_or_create_by(domain: domain)
-    end
-
     # Use callbacks to share common setup or constraints between actions.
     def set_site_contact
       @site_contact = SiteContact.find(params[:id])

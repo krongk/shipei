@@ -1,0 +1,249 @@
+@charset "utf-8";
+/* Used on visitors/show.html.erb */
+/* http://responsivedesignchecker.com/ */
+
+.top-burst-wrap {
+  width: 100 %;
+  border-bottom: solid 1px #222222;
+}
+
+.int-wrap {
+  width: 100%;
+  background-color: #0f0f0f;
+  overflow: hidden;
+}
+
+.top-burst {
+  margin: 0 auto;
+  width: 975px;
+  padding-top: 30px;
+}
+
+.letterBlocks {
+  position: relative;
+  display: block;
+  height: 143px;
+  z-index: 999;
+}
+
+.letterBlocks ul {
+  float: left;
+ /*left:50%; position:relative; */
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+}
+
+.letterBlocks li p, .letterBlocks li span {
+  display: block;
+}
+
+.letterBlocks li span {
+  color: #949191;
+  font-size: 9px;
+}
+
+.letterBlocks li img {
+  padding-bottom: 15px;
+  display: block;
+}
+
+li.letterBlock.fours {
+  margin-left: 21px;
+  margin-right: 7px;
+}
+
+li.letterBlock.fours.mid {
+  margin-left: 21px;
+  margin-right: 13px;
+}
+
+li.letterBlock.fours.end {
+  margin-left: 0px;
+  margin-right: 7px;
+}
+
+li.letterBlock.sixs {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+li.letterBlock.sixs.mid {
+  margin-left: 13px;
+  margin-right: 8px;
+}
+
+li.letterBlock.sixs.end {
+  margin-left: 12px;
+  margin-right: 0;
+}
+
+.letterBlock {
+  padding-bottom: 16px;
+  font-size: 10px;
+  text-transform: uppercase;
+  display: block;
+  float: left;
+  margin: 0 5px;
+ /*position:relative; right:50%; */
+  text-align: center;
+  color: #ffc90f;
+  font-size: 12px;
+}
+
+.letterBlock: hover, .letterBlock.selected {
+  background: url('/assets/devices/g_yarrrow.png') center bottom no-repeat;
+}
+
+.letterBlock: hover, .letterBlock.selected {
+  color: #000;
+  cursor: pointer;
+}
+
+.letterBlocks li:hover p, .letterBlocks li:hover span, .letterBlocks li.selected span, .letterBlocks li.selected p {
+  color: #000;
+}
+
+.letterBlock div {
+  padding: 10px 7px 15px;
+  display: block;
+}
+
+.letterBlock: hover div, .letterBlock.selected div {
+  display: block;
+ -moz-border-radius: 8px;
+  border-radius: 8px;
+  background: #f8df03 url(/assets/devices / selected_background_gradient.png) left bottom repeat-x;
+  background-color: #f8df03;
+ /*background: url(images/linear_bg_2.png); background-repeat: repeat-x;*/ /* Safari 4-5, Chrome 1-9 */
+  background: -webkit-gradient(linear, 0 % 0 % , 0 % 100 % , from(#f8df03), to(#eeae02));
+ /* Safari 5.1, Chrome 10+ */
+  background: -webkit-linear-gradient(top, #f8df03, #eeae02);
+ /* Firefox 3.6+ */
+  background: -moz-linear-gradient(top, #f8df03, #eeae02);
+ /* IE 10 */
+  background: -ms-linear-gradient(top, #f8df03, #eeae02);
+ /* Opera 11.10+ */
+  background: -o-linear-gradient(top, #f8df03, #eeae02);
+}
+
+.measureit {
+  margin: 0 auto;
+  width: 963px;
+  padding: 50px 0 0 0;
+}
+
+#display {
+  width: 1024px;
+  margin: 10px auto 75px;
+  height: 3072px;
+  position: relative;
+  overflow: hidden;
+ -moz-border-radius: 15px;
+  transform-origin: 0 0;
+ -ms-transform-origin: 0 0;
+ -moz-transform-origin: 0 0;
+ -webkit-transform-origin: 0 0;
+ -o-transform-origin: 0 0;
+  transition: all 500ms ease-in -out;
+ -ms-transition: all 500ms ease-in -out;
+ -moz-transition: all 500ms ease-in -out;
+ -webkit-transition: all 500ms ease-in -out;
+ -o-transition: all 500ms ease-in -out;
+}
+
+#display iframe {
+  overflow: none;
+  border: none;
+  z-index: 1px;
+  background: #fff;
+}
+
+#display #overlay1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 101 %;
+  z-index: 2;
+  background: rgba(0, 0, 0, .8);
+}
+
+#display #overlay1.moved {
+  border-bottom: 1px solid#FFC90F;
+}
+
+#display #overlay2 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 101 %;
+  top: 768px;
+  z-index: 2;
+  background: rgba(0, 0, 0, .8);
+  border-top: 1px solid#FFC90F;
+}
+
+#lg-search {
+  background: url('/assets/devices/bg_search.jpg') 0 0;
+  border: none;
+  font-size: 18px;
+  color: #666;
+  padding: 21px 32px 20px;
+  width: 775px;
+  margin-right: 15px;
+  ;
+}
+
+#lg-searchBtn {
+  position: relative;
+  top: 5px;
+  cursor: pointer;
+ -moz-border-radius: 8px;
+  border-radius: 8px;
+  background-color: #f4cc03;
+ /*background: url(images/linear_bg_2.png); background-repeat: repeat-x;*/ /* Safari 4-5, Chrome 1-9 */
+  background: -webkit-gradient(linear, 0 % 0 % , 0 % 100 % , from(#f4cc03), to(#eeae02));
+ /* Safari 5.1, Chrome 10+ */
+  background: -webkit-linear-gradient(top, #f4cc03, #eeae02);
+ /* Firefox 3.6+ */
+  background: -moz-linear-gradient(top, #f4cc03, #eeae02);
+ /* IE 10 */
+  background: -ms-linear-gradient(top, #f4cc03, #eeae02);
+ /* Opera 11.10+ */
+  background: -o-linear-gradient(top, #f4cc03, #eeae02);
+  width: 80px;
+  height: 62px;
+  color: #6c4c01;
+  border: none;
+  font-size: 30px;
+  font-family: 'Microsoft Yahei', Arial, Helvetica, sans-serif;
+}
+
+#lg-searchBtn: hover {
+  background-color: #6C4C01 !important;
+  color: #f4cc03;
+ /*background: url(images/linear_bg_2.png); background-repeat: repeat-x;*/ /* Safari 4-5, Chrome 1-9 */
+  background: -webkit-gradient(linear, 0 % 0 % , 0 % 100 % , from(#6C4C01), to(#513900));
+ /* Safari 5.1, Chrome 10+ */
+  background: -webkit-linear-gradient(top, #6C4C01, #513900);
+ /* Firefox 3.6+ */
+  background: -moz-linear-gradient(top, #6C4C01, #513900);
+ /* IE 10 */
+  background: -ms-linear-gradient(top, #6C4C01, #513900);
+ /* Opera 11.10+ */
+  background: -o-linear-gradient(top, #6C4C01, #513900);
+}
+
+.dis-wrapper {
+  width: 100 %;
+  padding-top: 20px;
+}
+
+.dimensions {
+  display:block;
+  width:1024px;
+  margin:10px auto 0;
+  font-size:.8em;
+}
+.dimensions { color: #fff;}
+.dimensions span#title { color:#FFF;}

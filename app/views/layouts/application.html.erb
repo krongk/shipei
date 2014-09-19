@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title><%= content_for?(:title) ? yield(:title) : "Shipei" %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Shipei" %>">
+    <title><%= content_for?(:title) ? yield(:title) : "摩适配" %></title>
+    <meta name="keywords" content="<%= content_for?(:keywords) ? yield(:keywords) : ApplicationHelper::SITE_KEYWORDS %>">
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "摩适配" %>">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <!--[if lt IE 9]>
@@ -18,12 +19,6 @@
 
   </head>
   <body data-spy="scroll" data-target="#main-nav" data-offset="200">
-    <!-- <header>
-      <%#= render 'layouts/navigation' %>
-    </header>
-    <main role="main">
-       <%#= render 'layouts/messages' %>
-    </main> -->
     <%= yield %>
   </body>
 </html>

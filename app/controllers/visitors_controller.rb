@@ -4,18 +4,17 @@ class VisitorsController < ApplicationController
 
   def index
     if params[:url]
-      domain = begin
-        URI.parse(params[:url]).hostname
-      rescue
-      end
-      return if domain.nil?
-      @site = Site.find_or_create_by(domain: domain)
-      redirect_to get_site_path(@site)
-    end
+      @site = get_site(params[:url])
+      redirect_to @site.present? ? "/s/#{@site.short_title}" : '/'
+    end 
   end
 
   def show
-    @site = Site.find_by(short_title: params[:short_title])
-    @devices = Device.where(is_processed: 'y').order("id ASC").all
+    if params[:url]
+      @site = get_site(params[:url])
+      redirect_to @site.present? ? "/s/#{@site.short_title}" : '/'
+    else
+      @site = Site.find_by(short_title: params[:short_title])
+    end
   end
 end

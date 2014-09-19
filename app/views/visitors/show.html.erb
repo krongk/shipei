@@ -1,3 +1,6 @@
+<% title ['摩适配', @site.title].join('-') %>
+<% meta_description [@site.description, ApplicationHelper::SITE_KEYWORDS].join(', ') %>
+
 <!--=== PAGE PRELOADER ===-->
 <div id="page-loader"><span class="page-loader-gif"></span></div>
 <!-- ==============================================
@@ -26,14 +29,248 @@ MAIN NAV
 </div><!--End main-nav -->
 
 <!-- ==============================================
-swiper_section
+Responsive Section
 =============================================== -->
-<section id="swiper_section" class="add-padding">
-  <div class="container">
-    <div class="row">
-    <div class="col-md-12">
-      <%=render 'swiper' %>
-    </div>
+<div class="top-burst-wrap">
+  <div class="top-burst">
+    <h1><%= @site.title %><h1>
+    <!-- ==============================================
+    SEARCH FORM
+    =============================================== -->
+    <form class="search_form" role="search">
+      <div class="row">
+        <div class="col-md-10 col-sm-12 col-xs-12">
+          <input class="form-control input-url" type="url" name="url" placeholder="输入网站地址, 以http://开头" value="http://<%= @site.domain %>" style="width: 100%;">
+        </div>
+        <div class="col-md-2 col-sm-12 col-xs-12">
+          <button type="submit" class="btn btn-default btn-submit" style="width: 100%;">开始测试</button>
+        </div>
+      </div>
+    </form>
+
+
+    <img class="measureit" src="/assets/devices/measure.png">
+
+    <div class="letterBlocks">
+      <ul>
+        <li class="letterBlock fours end" data-width="2560" data-height="1440" data-title="27in. Monitor, Dell U2711">
+          <div>
+            <img src="/assets/devices/65px_dell_u2711_2.png" title="27in. Monitor" alt="2560px">
+            <p>27 INCH<span>MONITOR</span>
+            </p>
+          </div>
+        </li>
+        <li class="letterBlock fours" data-width="1920" data-height="1200" data-title="17in. Workstation">
+          <div>
+            <img src="/assets/devices/65px_dell_2.png" title="WUXGA Workstation" alt="1920px">
+            <p>17 INCH<span>Workstation</span>
+            </p>
+          </div>
+        </li>
+        <li class="letterBlock fours" data-width="1680" data-height="1050" data-title="15in. Macbook Pro">
+          <div>
+            <img src="/assets/devices/65px_macbook_pro_2.png" title="Macbook Pro" alt="1680px">
+            <p>15 inch<span>Macbook Pro</span>
+            </p>
+          </div>
+        </li>
+        <li class="letterBlock fours mid" data-width="1366" data-height="768" data-title="11in. Macbook Air">
+          <div>
+            <img src="/assets/devices/65px_macbook_air_2.png" title="Macbook Air" alt="1366px">
+            <p>11 inch<span>Macbook air</span>
+            </p>
+          </div>
+        </li>
+        <li class="letterBlock sixs mid" data-width="1024" data-height="768" data-title="iPad (Landscape)">
+          <div>
+            <img src="/assets/devices/65px_ipad_landscape_2.png" title="iPad (Landscape)" alt="1024px">
+            <p>Ipad<span>landscape</span>
+            </p>
+          </div>
+        </li>
+        <li class="letterBlock sixs" data-width="768" data-height="1024" data-title="iPad (Portrait)">
+          <div>
+            <img src="/assets/devices/65px_ipad_portrait_2.png" title="iPad (Portrait)" alt="768px">
+            <p>iPad<span>portrait</span>
+            </p>
+          </div>
+        </li>
+        <li class="letterBlock sixs selected" data-width="966" data-height="603" data-title="Nexus7 (Landscape)">
+          <div>
+            <img src="/assets/devices/65px_kindlefire_landscape_2.png" title="Nexus7 (Lanscape)" alt="966px">
+            <p>Nexus 7<span>landscape</span>
+            </p>
+          </div>
+        </li>
+        <li class="letterBlock sixs" data-width="603" data-height="966" data-title="Nexus7 (Portrait)">
+          <div>
+            <img src="/assets/devices/65px_kindlefire_portrait_2.png" title="Nexus7 (Portrait)" alt="600px">
+            <p>Nexus 7<span>portrait</span>
+            </p>
+          </div>
+        </li>
+        <li class="letterBlock sixs end" data-width="320" data-height="480" data-title="iPhone (Portrait)">
+          <div>
+            <img src="/assets/devices/65px_iphone_portrait_2.png" title="iPhone (Portrait)" alt="320px">
+            <p>iphone<span>portrait</span>
+            </p>
+          </div>
+        </li>
+      </ul>
     </div>
   </div>
-</section>
+</div>
+<!-- /top-burst & wrapper -->
+<div class="dis-wrapper">
+  <div class="dimensions"><span id="title"></span> <span id="width"></span> <span id="height"></span> </div>
+  <div id="display" style="border-width: 1px; width: 966px;">
+    <div id="overlay1" class="" style="bottom: auto; display: none;"></div>
+    <div id="overlay2" style="top: 603px; display: block;"></div>
+    <iframe src="http://<%= @site.domain %>" height="100%" width="100%" border="0" scrolling="no"></iframe>
+  </div>
+</div>
+
+<script type="text/javascript">
+  var vpHeight = 768,
+    vpWidth = 1024,
+    vpOffset = 10,
+    winWidth = $(window).width(),
+    winHeight = $(window).height(),
+    metaFound = false,
+    displayPos = {},
+    meta = {}
+
+  $(document).ready(function() {
+    displayPos = $('#display').offset(), vpOffset = displayPos.top
+
+    $('#lg-search').click(function() {
+      var context = $(this);
+
+      if (context.val() == context.attr('data-placeholder')) {
+        context.val('');
+      }
+    });
+    $('#lg-search').blur(function() {
+      var context = $(this);
+
+      if (context.val() == '') {
+        context.val(context.attr('data-placeholder'));
+      }
+    });
+
+    $('#checkURL').submit(function(e) {
+      e.preventDefault(); 
+      window.location = document.location.protocol + '//' + document.domain + '/' + $('input[name=url]', '#checkURL').val().replace('http://', '').replace(document.domain, '');
+    });
+
+   
+    //click actions
+    $('.letterBlock').click(function(i, el) {
+      var context = $(this),
+        index = $('.letterBlock').index($(this)),
+        data = context.data(),
+        scale = winWidth / (data.width + 2),
+        scale_or_zoom = $('input[type="radio"][name="scale_or_zoom"]:checked').val()
+
+      vpHeight = data.height, vpWidth = data.width
+
+      $('.letterBlock').removeClass('selected').eq(index).addClass('selected');
+
+      $('#width').text(data.width);
+      $('#height').text(data.height);
+      $('#title').text(data.title);
+
+      if (parseInt(data.width) < parseInt(winWidth)) { //scale > 1) {
+        //smaller than viewport
+        //if (true || meta.width == 'device-width' || meta['initial-scale'] == 1 || scale_or_zoom == 'zoom') {
+        //responsive
+        $('#display')
+          .css({
+            'transform': '',
+            '-ms-transform': '',
+            '-moz-transform': '',
+            '-webkit-transform': '',
+            '-o-transform': '',
+            'border-width': '1px'
+          })
+          .animate({
+            'width': data.width + 'px'
+          })
+        $('#overlay1, #overlay2', '#display').css({
+          'display': 'block'
+        })
+
+      } else {
+        //bigger than viewport
+        $('#display').css({
+          'width': data.width + 'px',
+          'transform': 'scale(' + scale + ')',
+          'transform-origin': '0 0',
+          '-ms-transform': 'scale(' + scale + ')',
+          '-ms-transform-origin': '0 0',
+          '-moz-transform': 'scale(' + scale + ')',
+          '-moz-transform-origin': '0 0',
+          '-webkit-transform': 'scale(' + scale + ')',
+          '-webkit-transform-origin': '0 0',
+          '-o-transform': 'scale(' + scale + ')',
+          '-o-transform-origin': '0 0',
+          'transition': 'all 500ms ease-in-out',
+          '-ms-transition': 'all 500ms ease-in-out',
+          '-moz-transition': 'all 500ms ease-in-out',
+          '-webkit-transition': 'all 500ms ease-in-out',
+          '-o-transition': 'all 500ms ease-in-out',
+          'border-width': (1 / scale) + 'px'
+        })
+
+        $('#overlay1, #overlay2', '#display').css({
+          'display': 'none'
+        })
+      }
+
+      $('#overlay1').css({
+        'bottom': 'auto'
+      }).removeClass('moved');
+      $('#overlay2').animate({
+        'top': data.height + 'px'
+      });
+    });
+
+    $(window).resize(function() {
+      winWidth = $(window).width(), winHeight = $(window).height()
+
+      var data = $('.letterBlock.selected').data(),
+        scale = winWidth / (data.width + 2)
+      if (scale < 1) {
+        $('#display').css({
+          'transform': 'scale(' + scale + ')',
+          '-ms-transform': 'scale(' + scale + ')',
+          '-moz-transform': 'scale(' + scale + ')',
+          '-webkit-transform': 'scale(' + scale + ')',
+          '-o-transform': 'scale(' + scale + ')'
+        })
+      }
+    })
+
+    $(window).scroll(function(i, el) {
+      var scrolled = $(window).scrollTop(),
+      overlayOffset = scrolled - vpOffset;
+      if (scrolled > vpOffset) { //(scrolled + vpHeight) > (vpOffset + vpHeight - (winHeight / 2))) { //true) { //
+        $('#overlay1', '#display').addClass('moved').css({
+          'bottom': ($('body').height() - vpOffset - overlayOffset - 10) + 'px',
+          'display': 'block'
+        });
+        $('#overlay2', '#display').css({
+          'top': (overlayOffset + 10 + vpHeight) + 'px'
+        });
+      } else {
+        $('#overlay1', '#display').css({
+          'bottom': 'auto',
+          'display': 'none'
+        });
+        $('#overlay2', '#display').css({
+          'top': vpHeight + 'px'
+        });
+      }
+    });
+  });
+</script>

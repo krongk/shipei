@@ -5,7 +5,7 @@ class SitesController < ApplicationController
   # GET /sites
   # GET /sites.json
   def index
-    @sites = Site.all
+    #@sites = Site.all
   end
 
   # GET /sites/1
@@ -65,8 +65,8 @@ class SitesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_site
-      @site = Site.find_by(short_title: params[:short_title])
-      @site ||= Site.find(params[:id])
+      #@site = Site.find_by(short_title: params[:short_title])
+      #@site ||= Site.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
