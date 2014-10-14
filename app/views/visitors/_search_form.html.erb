@@ -1,7 +1,7 @@
 <form class="search_form" id="search-form" role="search">
   <div class="row">
     <div class="col-md-9 col-sm-8 col-xs-12">
-      <input class="form-control input-url requiredField" type="url" name="url" value="http://" data-error-empty="*请输入网站网址" data-error-invalid="汗！这网址能访问吗？">
+      <input class="form-control input-url requiredField" type="url" name="url" value="<%= "http://#{@site.try(:domain)}" %>" data-error-empty="*请输入网站网址" data-error-invalid="汗！这网址能访问吗？">
     </div>
     <div class="col-md-3 col-sm-4 col-xs-12">
       <button type="submit" class="btn btn-default btn-submit" data-error-message="等下!" data-sending-message="发送中..." data-ok-message="发送成功"><i class="fa fa-paper-plane"></i>开始测试</button>
