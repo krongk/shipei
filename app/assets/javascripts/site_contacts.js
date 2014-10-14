@@ -24,7 +24,7 @@ ready = function() {
 					hasError = true;
 				}
 			} else if($(this).is("input[type='url']") || $(this).attr('name')==='url') {
-				var urlReg = /^((http(s)?:\/\/)?([\w-]+\.)+[\w-]{2,4})?.*/;
+				var urlReg = /^https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)$/;
 				if(!urlReg.test($.trim($(this).val()))) {
 					var invalidUrl = $(this).data('error-invalid');
 					$(this).parent().append('<span class="error-message" style="display:none;">'+invalidUrl+'.</span>').find('.error-message').fadeIn('fast');

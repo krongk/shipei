@@ -1,1 +1,11 @@
-sfs
+<h1><%= @site.domain %></h1>
+<table class="table table-bordered">
+  <tr><td width="120px">域名：</td><td><%= link_to @site.domain, 'http://' + @site.domain, target: '_blank' %></td></tr>
+  <tr><td>短地址：</td><td><%= @site.short_title %></td></tr>
+  <tr><td>标题：</td><td><%= @site.title %></td></tr>
+  <tr><td>关键词：</td><td><%= @site.keywords %></td></tr>
+  <tr><td>描述：</td><td><%= @site.description %></td></tr>
+  <tr><td>处理状态：</td><td><%= @site.is_processed %></td></tr>
+</table>
+<%= link_to '编辑', edit_site_path(@site) %> | 
+<%= link_to '返回', sites_path %>

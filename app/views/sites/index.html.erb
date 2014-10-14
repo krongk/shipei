@@ -1,14 +1,12 @@
-<h1>Listing sites</h1>
-
-<table>
+<h2>网站列表</h2>
+<table class="table table-brodered">
   <thead>
     <tr>
-      <th>Url</th>
-      <th>Title</th>
-      <th>Keywords</th>
-      <th>Description</th>
-      <th>Is processed</th>
-      <th>Note</th>
+      <th>编号</th>
+      <th>域名</th>
+      <th>访问</th>
+      <th>创建时间</th>
+      <th>处理状态</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,20 +14,19 @@
   <tbody>
     <% @sites.each do |site| %>
       <tr>
+        <td><%= site.id %></td>
         <td><%= site.domain %></td>
-        <td><%= site.title %></td>
-        <td><%= site.keywords %></td>
-        <td><%= site.description %></td>
+        <td><%= link_to '访问网站', 'http://' + site.domain.to_s, target: '_blank' %> | <%= link_to '适配预览', "/s/#{site.short_title}", target: '_blank' %></td>
+        <td><%= site.created_at.to_s(:db) %>(<%= distance_of_time_in_words_to_now(site.created_at) %>前)</td>
         <td><%= site.is_processed %></td>
-        <td><%= site.note %></td>
-        <td><%= link_to 'Show', site %></td>
-        <td><%= link_to 'Edit', edit_site_path(site) %></td>
-        <td><%= link_to 'Destroy', site, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '详细', site %></td>
+        <td><%= link_to '编辑', edit_site_path(site) %></td>
+        <td><%= link_to '删除', site, method: :delete, data: { confirm: '确定删除?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
+<%= will_paginate @sites %>
 
-<%= link_to 'New Site', new_site_path %>

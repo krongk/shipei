@@ -1,15 +1,17 @@
 <%# add navigation links to this file %>
-<li><%= link_to 'About', page_path('about') %></li>
-<% if user_signed_in? %>
-  <li><%= link_to 'Edit account', edit_user_registration_path %></li>
-  <li><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>
-<% else %>
-  <li><%= link_to 'Sign in', new_user_session_path %></li>
-  <li><%= link_to 'Sign up', new_user_registration_path %></li>
-<% end %>
 <% if user_signed_in? %>
   <% if current_user.admin? %>
-    <li><%= link_to 'Admin', '/admin' %></li>
-    <li><%= link_to 'Users', users_path %></li>
+    <li><%= link_to '网站', '/sites' %></li>
+    <li><%= link_to '管理', '/admin' %></li>
+    <li><%= link_to '会员', users_path %></li>
   <% end %>
+<% end %>
+
+<li><%= link_to '关于', page_path('about') %></li>
+<% if user_signed_in? %>
+  <li><%= link_to '修改账户', edit_user_registration_path %></li>
+  <li><%= link_to '退出', destroy_user_session_path, :method=>'delete' %></li>
+<% else %>
+  <li><%= link_to '登录', new_user_session_path %></li>
+  <li><%= link_to '注册', new_user_registration_path %></li>
 <% end %>

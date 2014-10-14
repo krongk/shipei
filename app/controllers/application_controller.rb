@@ -5,4 +5,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   layout 'admin'
   
+  def authenticate_auth
+    authenticate_user!
+    if current_user.id != 1
+      redirect_to(root_path, notice: '没有权限！') and return
+    end
+  end
+
 end

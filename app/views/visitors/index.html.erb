@@ -1,5 +1,5 @@
-<% title '摩适配 - 打通企业网站多终端适配' %>
-<% meta_description '网络如此发达，众多的营销、渠道、接口，你只需要一个站！' %>
+<% title '摩适配:企业网站多终端适配测试' %>
+<% meta_description '网络如此发达，渠道和入口如此众多，而你，只需要一个适配的站！' %>
 <!--=== PAGE PRELOADER ===-->
 
 <!-- ==============================================
@@ -48,16 +48,7 @@ HEADER
 SEARCH FORM
 =============================================== -->
 <section id="search_section">
-  <form class="search_form" role="search">
-    <div class="row">
-      <div class="col-md-9 col-sm-8 col-xs-12">
-        <input class="form-control input-url" type="url" name="url" value="http://">
-      </div>
-      <div class="col-md-3 col-sm-4 col-xs-12">
-        <button type="submit" class="btn btn-default btn-submit">开始测试</button>
-      </div>
-    </div>
-  </form>
+  <%= render 'search_form' %>
 </section>
 <!-- ==============================================
 SERVICES
@@ -177,7 +168,7 @@ CONTACT
         <div class="form-group">
           <label class="control-label" for="contact-url">网站</label>
           <div class="controls">
-          <input id="contact-url" name="site_contact[url]" type="url" class="form-control requiredField" data-new-placeholder="网站" placeholder="网站地址" data-error-empty="*请输入网站网址" data-error-invalid="汗！这网址能访问吗？">
+          <input id="contact-url" name="site_contact[url]" type="url" class="form-control requiredField" data-new-placeholder="网站" value="http://" data-error-empty="*请输入网站网址" data-error-invalid="汗！这网址能访问吗？">
           <i class="fa fa-link"></i>
           </div>
         </div><!-- End name input -->
@@ -251,12 +242,12 @@ FOOTER
         </a>
       </li>
       <li>
-        <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=57855708&site=qq&menu=yes">
+        <a target="_blank" href="http://wpa.qq.com/msgrd?v=3&uin=77632132&site=qq&menu=yes">
           <%= image_tag('icon-qq-girl.png', alt: '摩适配客服', width: '46px', border: '0px') %></a></li>
       <li>
         <a id="icon-weixin2" data-original-title="扫一扫加微信">
           <%= image_tag('icon-weixin.png', alt: '摩适配微信客服', width: '46px', border: '0px') %></a>
-          <div id="weixin-qrcode2" class="hidden"><%= image_tag('weixin-qrcode.png', alt: '高大上的维斗喜帖', width: '106px', border: '0px') %></div>
+          <div id="weixin-qrcode2" class="hidden"><%= image_tag('weixin-qrcode.png', alt: '高大上的维斗喜帖', width: '200px', border: '0px') %></div>
       </li>
     </ul>
     

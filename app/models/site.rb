@@ -1,8 +1,10 @@
 class Site < ActiveRecord::Base
+  default_scope {order('created_at DESC')}
+
   before_create :create_unique_short_title
 
   validates :domain, presence: true
- 
+  
   private
     def create_unique_short_title
       begin
