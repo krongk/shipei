@@ -8,7 +8,6 @@ class SiteProcessWorker
 
   def perform(site_id)
     flag = 'y'
-    puts "process site: #{site_id}"
     site = Site.find(site_id)
     url = "http://#{site.domain}"
     begin
@@ -21,7 +20,7 @@ class SiteProcessWorker
     begin
       site.title = doc.at('title').text
       unless site.title.blank?
-        site.title = site.title.sub(/\s*(-|\||,|\.|——|，|。).*$/, '')
+        site.title = site.title.sub(/\s*(-|\||,|\.|——|，|。|_|——|+|=|、|·).*$/, '')
       end
       site.keywords = doc.at('meta[name=keywords]').attr('content')
       site.description = doc.at('meta[name=description]').attr('content')
@@ -31,6 +30,6 @@ class SiteProcessWorker
 
     site.is_processed = flag
     site.save!
-    puts "done for process site: #{site.id}"
+    puts "done for process site: #{site.id} - #{flag}"
   end
 end
