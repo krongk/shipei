@@ -92,7 +92,7 @@ ABOUT
         <h1 class="big-text">怎样 <br/>解决网站适配</h1>
         <p class="lead">国内各大平台也相继推出了移动网站解决方案，比如百度轻应用+直达号；腾讯微信公共号+QQ浏览器轻应用; UC浏览器轻应用等.</p>
         <p>企业需要做的，就是建设一个自己的移动微网，然后接入各大平台。</p>
-        <p><a href="#contact" class="scrollto" class="btn btn-default">联系我们</a>
+        <p>我们专注于企业信息化网络建设多年，专注网络前端技术，移动端平台接入，期待与你合作！</p>
       </div>
     </div>
   </div>
@@ -218,6 +218,18 @@ ABOUT
             </tr>
             <tr>
               <% @top_ten_sites[9..17].each do |site| %>
+                <td><%= link_to site.title, "/s/#{site.short_title}" %></td>
+              <% end %>
+            </tr>
+          </table>
+          <table class="table">
+            <tr>
+              <% @last_ten_sites[0..8].each do |site| %>
+                <td><%= link_to site.title, "/s/#{site.short_title}" %></td>
+              <% end %>
+            </tr>
+            <tr>
+              <% @last_ten_sites[9..17].each do |site| %>
                 <td><%= link_to site.title, "/s/#{site.short_title}" %></td>
               <% end %>
             </tr>

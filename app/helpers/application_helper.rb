@@ -30,9 +30,7 @@ module ApplicationHelper
     site.save!
     site.reload
     #send notice to admin
-    if Rails.env == 'production'
-      SiteProcessWorker.perform_async(site.id)
-    end
+    SiteProcessWorker.perform_async(site.id)
     return site
   end
 end

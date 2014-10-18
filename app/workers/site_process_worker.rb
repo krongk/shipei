@@ -20,10 +20,13 @@ class SiteProcessWorker
 
     begin
       site.title = doc.at('title').text
+      unless site.title.blank?
+        site.title = site.title.sub(/\s*(-|\||,|\.|——|，|。).*$/, '')
+      end
       site.keywords = doc.at('meta[name=keywords]').attr('content')
       site.description = doc.at('meta[name=description]').attr('content')
     rescue => ex
-      flag += ex.message
+      flag += ' - ' + ex.message
     end
 
     site.is_processed = flag

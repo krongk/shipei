@@ -7,6 +7,7 @@ class VisitorsController < ApplicationController
       redirect_to  "/s/#{@site.short_title}" and return
     end
     @top_ten_sites = Site.unscoped.order("id asc").limit(18)
+    @last_ten_sites = Site.where("title is not null").limit(18)
     @site_count = Site.count
   end
 
