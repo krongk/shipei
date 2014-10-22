@@ -15,10 +15,12 @@
       <script src="/ie/respond.min.js" type="text/javascript"></script>
     <![endif]-->
     <%= csrf_meta_tags %>
-
+    <meta name="360-site-verification" content="f8e3809be8bf9728ab4a9a6043a81d02" />
+    <meta name="baidu-site-verification" content="CCDcc76F2z" />
   </head>
   <body data-spy="scroll" data-target="#main-nav" data-offset="200">
     <%= render 'layouts/messages' %>
     <%= yield %>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
