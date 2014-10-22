@@ -203,7 +203,7 @@ CONTACT
 <!-- ==============================================
 ABOUT
 =============================================== -->
-<% if @top_ten_sites.size > 10 %>
+<% if @top_sites.size > 10 %>
 <section id="case" class="bg-color1 hidden-xs">
   <div class="container">
     <div class="row">
@@ -212,24 +212,24 @@ ABOUT
         <div class="table-responsive">
           <table class="table">
             <tr>
-              <% @top_ten_sites[0..8].each do |site| %>
+              <% @top_sites[0..8].each do |site| %>
                 <td><%= link_to site.title, "/s/#{site.short_title}" %></td>
               <% end %>
             </tr>
             <tr>
-              <% @top_ten_sites[9..17].each do |site| %>
+              <% @top_sites[9..17].each do |site| %>
                 <td><%= link_to site.title, "/s/#{site.short_title}" %></td>
               <% end %>
             </tr>
           </table>
           <table class="table">
             <tr>
-              <% @last_ten_sites[0..8].each do |site| %>
+              <% @last_sites[0..8].each do |site| %>
                 <td><%= link_to site.title, "/s/#{site.short_title}" %></td>
               <% end %>
             </tr>
             <tr>
-              <% @last_ten_sites[9..17].each do |site| %>
+              <% @last_sites[9..17].each do |site| %>
                 <td><%= link_to site.title, "/s/#{site.short_title}" %></td>
               <% end %>
             </tr>

@@ -13,12 +13,10 @@ var ready = function() {
 	/*============================================
 	Page Preloader
 	==============================================*/
-	
-	$(window).load(function(){
-		$('#page-loader').fadeOut(500,function(){
-			//loadGmap();
-		});
-	})
+	$('#page-loader').fadeOut(500,function(){
+		return true;
+	});
+
 	
 	/*============================================
 	Header
