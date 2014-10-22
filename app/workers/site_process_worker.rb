@@ -1,3 +1,4 @@
+#encoding: utf-8
 # to extact title, meta keywords from site domain
 # http://nokogiri.org/
 require 'nokogiri'
@@ -9,6 +10,7 @@ class SiteProcessWorker
   def perform(site_id)
     flag = 'y'
     site = Site.find(site_id)
+    puts "start processing site: #{site_id}"
     url = "http://#{site.domain}"
     begin
       doc = Nokogiri::HTML(open(url))
@@ -20,7 +22,7 @@ class SiteProcessWorker
     begin
       site.title = doc.at('title').text
       unless site.title.blank?
-        site.title = site.title.sub(/\s*(-|\||,|\.|——|，|。|_|——|+|=|、|·).*$/, '')
+        site.title = site.title.sub(/\s*(-|_|\||,|\.|\+|，|、|。|——|·).*$/, '')
       end
       site.keywords = doc.at('meta[name=keywords]').attr('content')
       site.description = doc.at('meta[name=description]').attr('content')
