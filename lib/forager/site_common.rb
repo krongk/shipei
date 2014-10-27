@@ -2,6 +2,10 @@
 #used in: 
 # 1.  workers/site_process_worker.rb
 #
+require 'rubygems'
+require 'nokogiri'
+require 'open-uri'
+
 module Forager
   module SiteCommon
     SPECIAL_SYMB = '-|_|\||\(|,|\.|\+|::|，|、|。|——|－|一|】|·'
@@ -48,6 +52,7 @@ module Forager
       end
 
       site.is_processed = flag
+      site.title = site.title.strip
       site.save!
       puts "done for process site: #{site.id} - #{flag}"
     end
